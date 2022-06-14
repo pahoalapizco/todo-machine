@@ -1,5 +1,9 @@
+import './styles/TodoCounter.css';
+
 export const TodoCounter = () => {
   return (
-    <h2> Has completado 2 de 3 tareas </h2>
+    <div className="TodoCounter--progressbar">
+      <span className="progressbar"> 50% </span>
+    </div>
   );
 }
