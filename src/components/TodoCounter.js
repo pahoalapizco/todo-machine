@@ -1,13 +1,13 @@
 import '../styles/TodoCounter.css';
 
-export const TodoCounter = ({ totalItems, totalCompleatedItems }) => {
+export const TodoCounter = ({ total, completed }) => {
   const progress = {
     width: '0%',
   }
   let percent = '';
 
-  if(totalItems > 0 && totalCompleatedItems > 0) {
-    percent = `${Math.floor((totalCompleatedItems * 100) / totalItems)}%`;
+  if(total > 0 && completed > 0) {
+    percent = `${Math.floor((completed * 100) / total)}%`;
     progress.width = percent;
   }
 
