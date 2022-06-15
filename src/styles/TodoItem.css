@@ -1,0 +1,36 @@
+.TodoItem {
+  width: 100%;
+  height: 36px;
+  margin-bottom: 8px;
+  padding: 0 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 8px;
+  background-color: var(--background-color);
+}
+
+.TodoItem-text {
+  width: 100%;
+  margin: 0 10px;
+  text-align: left;
+}
+
+.TodoItem-text--completed {
+  text-decoration: line-through;
+}
+
+.TodoItem-check:checked::before {  
+  background-color: var(--primary-color);
+}
+
+.TodoItem-delete {
+  font-size: 1.2rem;
+}
+
+.TodoItem-delete:hover {
+  color: red;
+  cursor: pointer;
+  font-size: 1.6rem;
+}

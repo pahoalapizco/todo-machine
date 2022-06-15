@@ -1,10 +1,16 @@
-export const TodoItem = ({ text, completed }) => {
-  return (
-    <li>
-      <span> C </span>
-      { text }
+import { Checkbox } from './components/Checkbox';
 
-      { completed && <span> X </span> }
+import './styles/TodoItem.css';
+
+export const TodoItem = ({ todoId, text, completed }) => {
+  return (
+    <li className="TodoItem">
+      <Checkbox id={todoId}/>
+      <p className={`TodoItem-text ${completed && "TodoItem-text--completed"}`}>
+      { text }
+      </p>
+
+      <span className="TodoItem-delete"> X </span>
     </li>
   );
 }

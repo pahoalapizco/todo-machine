@@ -16,7 +16,7 @@ function App() {
       <TodoCounter />
       <TodoSearch />
       <TodoList>
-        { todos.map(todo=> <TodoItem key={todo.id} text={todo.text} completed={todo.completed} />) }
+        { todos.map(todo=> <TodoItem key={todo.id} todoId={todo.id} text={todo.text} completed={todo.completed} />) }
       </TodoList>
       <CreateTodoButton />
     </>

@@ -52,3 +52,32 @@ button:hover {
   background-color: var(--layout-color);
 }
 
+/* Checkbox compleate */
+input[type=checkbox] {
+  display: none;
+}
+
+input[type=checkbox] + label {
+  cursor: pointer;
+}
+
+label {
+  width: 20px;
+}
+
+label:before {
+  width: 20px;
+  height: 20px;
+  display: inline-block;
+  content: "";
+  border: 1px solid var(--primary-color);
+  border-radius: 5px;
+  text-align: center;
+  vertical-align: middle;
+}
+
+input[type=checkbox]:checked + label:before  {
+  content: '✓';
+  background-color: var(--primary-color);
+  font-weight: bold;
+}
