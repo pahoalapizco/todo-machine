@@ -1,6 +1,6 @@
-import { Checkbox } from './components/Checkbox';
+import { Checkbox } from './Checkbox';
 
-import './styles/TodoItem.css';
+import '../styles/TodoItem.css';
 
 export const TodoItem = ({ todoId, text, completed }) => {
   return (

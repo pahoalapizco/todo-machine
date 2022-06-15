@@ -1,0 +1,9 @@
+.CreateTodoButton {
+  width: 30px;
+  height: 30px;
+  font-size: 2rem;
+  font-weight: bold;
+  border: 1px solid var(--primary-color);
+  background-color: transparent;
+  color: var(--primary-color);
+}

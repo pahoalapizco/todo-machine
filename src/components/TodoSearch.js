@@ -1,4 +1,4 @@
-import './styles/TodoSearch.css';
+import '../styles/TodoSearch.css';
 
 export const TodoSearch = () => {
   return (

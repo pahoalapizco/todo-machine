@@ -1,4 +1,4 @@
-import './styles/TodoList.css';
+import '../styles/TodoList.css';
 
 export const TodoList = (props) => {
   return (

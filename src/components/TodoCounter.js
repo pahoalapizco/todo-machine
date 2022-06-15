@@ -1,4 +1,4 @@
-import './styles/TodoCounter.css';
+import '../styles/TodoCounter.css';
 
 export const TodoCounter = ({ percent }) => {
   return (

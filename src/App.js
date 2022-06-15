@@ -1,8 +1,8 @@
-import { TodoCounter } from './TodoCounter';
-import { TodoSearch } from './TodoSearch';
-import { CreateTodoButton } from './CreateTodoButton';
-import { TodoList } from './TodoList';
-import { TodoItem } from './TodoItem';
+import { TodoCounter } from './components/TodoCounter';
+import { TodoSearch } from './components/TodoSearch';
+import { CreateTodoButton } from './components/CreateTodoButton';
+import { TodoList } from './components/TodoList';
+import { TodoItem } from './components/TodoItem';
 
 const todos = [
   { id: 1, text: "Tarea 1", completed: false },
