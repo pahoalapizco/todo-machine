@@ -2,24 +2,17 @@ import { Checkbox } from './Checkbox';
 
 import '../styles/TodoItem.css';
 
-export const TodoItem = ({ todoId, text, completed }) => {
-  const onCompleted = () => {
-    console.log(`Task ${text} completed`);
-  }
-  const onDelete = () => {
-    console.log(`Task ${text} deleted`);
-  }
-
+export const TodoItem = ({ todoId, text, completed, deleteTodo, completeTodo, }) => {
   return (
     <li className="TodoItem">
-      <Checkbox id={todoId} completed={completed} onCompleted={onCompleted}/>
+      <Checkbox id={todoId} completed={completed} completeTodo={completeTodo}/>
       <p className={`TodoItem-text ${completed && "TodoItem-text--completed"}`}>
       { text }
       </p>
 
       <span 
         className="TodoItem-delete"
-        onClick={onDelete}
+        onClick={() => deleteTodo(todoId)}
       > 
         X 
       </span>
