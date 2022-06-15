@@ -43,6 +43,7 @@ button:hover {
 
 #root {
   width: 100%;
+  max-width: 480px;
   height: 100vh;
   padding: 20px;
   display: flex;
@@ -80,4 +81,13 @@ input[type=checkbox]:checked + label:before  {
   content: '✓';
   background-color: var(--primary-color);
   font-weight: bold;
+}
+
+@media(min-width: 460px) {
+  #root {
+    margin: 0 auto;
+    height: 80vh;
+    margin-top: 50px;
+    border-radius: 25px;
+  }
 }

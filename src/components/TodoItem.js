@@ -5,7 +5,7 @@ import '../styles/TodoItem.css';
 export const TodoItem = ({ todoId, text, completed }) => {
   return (
     <li className="TodoItem">
-      <Checkbox id={todoId}/>
+      <Checkbox id={todoId} completed={completed} />
       <p className={`TodoItem-text ${completed && "TodoItem-text--completed"}`}>
       { text }
       </p>
