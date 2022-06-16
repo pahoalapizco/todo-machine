@@ -1,10 +1,6 @@
 import { useState } from 'react';
 
-import { TodoCounter } from './components/TodoCounter';
-import { TodoSearch } from './components/TodoSearch';
-import { CreateTodoButton } from './components/CreateTodoButton';
-import { TodoList } from './components/TodoList';
-import { TodoItem } from './components/TodoItem';
+import { AppUI } from './AppUI';
 
 const defaultTodos = [
   { id: 1, text: "Tarea 1", completed: true },
@@ -13,7 +9,7 @@ const defaultTodos = [
 ]
 
 
-function App() {
+export function App() {
   const [todos, setTodos] = useState(defaultTodos);
   const [searchValue, setSearchValue] = useState('');
 
@@ -45,31 +41,15 @@ function App() {
   }
 
   return (
-    <>
-      <TodoCounter 
-        total={totalTodos} 
-        completed={completedTodos} 
-      />
-      <TodoSearch 
-        searchValue={searchValue}
-        setSearchValue={setSearchValue}
-      />
-      <TodoList>
-        { 
-          searchedTodos.map(todo=> 
-            <TodoItem 
-              key={todo.id} 
-              todoId={todo.id} 
-              text={todo.text} 
-              completed={todo.completed}
-              deleteTodo={deleteTodo}
-              completeTodo={completeTodo}
-            />) 
-          }
-      </TodoList>
-      <CreateTodoButton />
-    </>
+    <AppUI 
+      total={totalTodos} 
+      completed={completedTodos} 
+      searchValue={searchValue}
+      setSearchValue={setSearchValue}
+      searchedTodos={searchedTodos}
+      deleteTodo={deleteTodo}
+      completeTodo={completeTodo}
+    />
   );
 }
 
-export default App;
