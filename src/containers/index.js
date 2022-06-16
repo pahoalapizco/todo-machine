@@ -1,16 +1,13 @@
 import { useState } from 'react';
 
+// custom hooks
+import { useLocalStorage } from '../hooks/useLocalStorage';
 import { AppUI } from './AppUI';
 
+
 export function App() {
-const localstorageTodos = JSON.parse(localStorage.getItem('TODOS'));
-const defaultTodos = localstorageTodos || [];
+  const [todos, setTodos] = useLocalStorage("TODOS", []);
 
-if(!localstorageTodos) {
-  localStorage.setItem('TODOS', JSON.stringify([]));
-}
-
-  const [todos, setTodos] = useState(defaultTodos);
   const [searchValue, setSearchValue] = useState('');
 
   const totalTodos = todos.length;
@@ -23,14 +20,10 @@ if(!localstorageTodos) {
   } else {
     searchedTodos = [...todos];
   }
-  const saveTodos = (newTodos) => {
-    setTodos(newTodos);
-    localStorage.setItem('TODOS', JSON.stringify(newTodos));
-  }
 
   const deleteTodo = (todoId) => {
     const newTodos = todos.filter(({ id }) => id !== todoId);
-    saveTodos(newTodos);
+    setTodos(newTodos);
   }
   const completeTodo = (event) => {
     const todoId = event.target.id.split("-").reverse()[0],
@@ -40,7 +33,7 @@ if(!localstorageTodos) {
     const todoIdx = newTodos.findIndex(todo => parseInt(todo.id) === parseInt(todoId));
     if(todoIdx >= 0) {
       newTodos[todoIdx].completed = checked;
-      saveTodos(newTodos);
+      setTodos(newTodos);
     }
   }
 
