@@ -1,6 +1,11 @@
+// context
+import { useContext } from 'react';
+import { TodoContext } from '../context/TodoContext';
 import '../styles/TodoCounter.css';
 
-export const TodoCounter = ({ total, completed }) => {
+export const TodoCounter = () => {
+  const { total, completed } = useContext(TodoContext);
+  
   const progress = {
     width: '0%',
   }
