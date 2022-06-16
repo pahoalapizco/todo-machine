@@ -5,10 +5,21 @@ import { TodoSearch } from "../components/TodoSearch";
 import { CreateTodoButton } from "../components/CreateTodoButton";
 import { TodoList } from "../components/TodoList";
 import { TodoItem } from "../components/TodoItem";
+import { TodoForm } from "./TodoForm";
+
+// portal
+import { Modal } from "./Modal";
 
 export function AppUI() {
-  const { loading, error, searchedTodos, deleteTodo, completeTodo } =
-    useContext(TodoContext);
+  const { 
+    loading, 
+    error, 
+    searchedTodos, 
+    deleteTodo, 
+    completeTodo,
+    openModal,
+    setOpenModal,
+  } =  useContext(TodoContext);
   return (
     <>
       <TodoCounter />
@@ -28,7 +39,15 @@ export function AppUI() {
           />
         ))}
       </TodoList>
-      <CreateTodoButton />
+      <CreateTodoButton setOpenModal={setOpenModal}/>
+      {
+        openModal && (
+          <Modal>
+            <TodoForm setOpenModal={setOpenModal}/>
+          </Modal>
+        )
+      }
+      
     </>
   );
 }

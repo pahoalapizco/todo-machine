@@ -13,8 +13,10 @@ export const TodoProvider = (props) => {
     error
   } = useLocalStorage("TODOS", []);
   
+  // States
   const [searchValue, setSearchValue] = useState('');
-  
+  const [openModal, setOpenModal] = useState(false);
+
   const total = todos.length;
   const completed = todos.filter(({ completed }) => completed).length;
   
@@ -42,6 +44,22 @@ export const TodoProvider = (props) => {
     }
   }
 
+  const createTodo = (text) => {
+    const newTodos = [...todos];
+    let newTodoId = 1;
+    
+    if(total > 0) {
+      newTodoId = todos.sort((currTodo, actTodo) => actTodo.id - currTodo.id)[0].id + 1;
+    }
+    
+    newTodos.push({
+      id: newTodoId,
+      text,
+      completed: false
+    });
+    setTodos(newTodos);
+  }
+
   return (
     <TodoContext.Provider value={{      
       loading,
@@ -53,6 +71,9 @@ export const TodoProvider = (props) => {
       searchedTodos,
       deleteTodo,
       completeTodo,
+      createTodo,
+      openModal, 
+      setOpenModal,
     }}>
       { props.children }
     </TodoContext.Provider>

@@ -58,15 +58,15 @@ input[type=checkbox] {
   display: none;
 }
 
-input[type=checkbox] + label {
+input[type=checkbox] + .labelCheck {
   cursor: pointer;
 }
 
-label {
+.labelCheck {
   width: 20px;
 }
 
-label:before {
+.labelCheck:before {
   width: 20px;
   height: 20px;
   display: inline-block;
@@ -77,7 +77,7 @@ label:before {
   vertical-align: middle;
 }
 
-input[type=checkbox]:checked + label:before  {
+input[type=checkbox]:checked + .labelCheck:before  {
   content: '✓';
   background-color: var(--primary-color);
   font-weight: bold;

@@ -1,8 +1,8 @@
 import '../styles/CreateTodoButton.css';
 
-export const CreateTodoButton = () => {
+export const CreateTodoButton = ({ setOpenModal }) => {
   const onAddNewTodo = () => {
-    console.log("Add new todo");
+    setOpenModal(prevState => !prevState);
   }
   return (
     <button 

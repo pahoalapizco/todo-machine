@@ -8,7 +8,7 @@ export const Checkbox = ({ id, completed, completeTodo }) => {
         onChange={completeTodo}
         checked={completed}
       />
-      <label htmlFor={`Compleated-${id}`}></label>
+      <label className="labelCheck" htmlFor={`Compleated-${id}`}></label>
     </>
   )
 }
