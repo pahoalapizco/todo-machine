@@ -1,19 +1,41 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export const useLocalStorage = (itmeName, initialValue) => {
-  const localstorageItems = JSON.parse(localStorage.getItem(itmeName));
-  const defaultItems = localstorageItems || initialValue;
+  const [error, setError] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [items, setItems] = useState(initialValue);
 
-  if(!localstorageItems) {
-    localStorage.setItem(itmeName, JSON.stringify(initialValue));
-  }
+  useEffect(() => {    
+    try {        
+      const localstorageItems = JSON.parse(localStorage.getItem(itmeName));
+      const defaultItems = localstorageItems || initialValue;
   
-  const [items, setItems] = useState(defaultItems);
+      if(!localstorageItems) {
+        localStorage.setItem(itmeName, JSON.stringify(initialValue));
+      }
   
-  const saveTodos = (newItems) => {
-    setItems(newItems);
-    localStorage.setItem(itmeName, JSON.stringify(newItems));
+      setItems(defaultItems);
+      setLoading(false);
+    } catch (error) {
+      setError(error);
+    }
+  }, []);
+  
+  
+  const saveItems = (newItems) => {
+    try {
+      setItems(newItems);
+      localStorage.setItem(itmeName, JSON.stringify(newItems));
+      
+    } catch (error) {
+      setError(error);
+    }
   }
 
-  return [items, saveTodos];
+  return {
+    items, 
+    saveItems,
+    loading,
+    error,
+  };
 }

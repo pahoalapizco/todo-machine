@@ -6,7 +6,12 @@ import { AppUI } from './AppUI';
 
 
 export function App() {
-  const [todos, setTodos] = useLocalStorage("TODOS", []);
+  const {
+    items: todos,
+    saveItems: setTodos,
+    loading,
+    error
+  } = useLocalStorage("TODOS", []);
 
   const [searchValue, setSearchValue] = useState('');
 
@@ -38,7 +43,9 @@ export function App() {
   }
 
   return (
-    <AppUI 
+    <AppUI
+      loading={loading}
+      error={error}
       total={totalTodos} 
       completed={completedTodos} 
       searchValue={searchValue}
