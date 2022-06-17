@@ -6,7 +6,7 @@ import { CreateTodoButton } from "../components/CreateTodoButton";
 import { TodoList } from "../components/TodoList";
 import { TodoItem } from "../components/TodoItem";
 import { TodoForm } from "./TodoForm";
-
+import { Loader } from "../components/Loader";
 // portal
 import { Modal } from "./Modal";
 
@@ -25,7 +25,7 @@ export function AppUI() {
       <TodoCounter />
       <TodoSearch />
       <TodoList>
-        {loading && <p> Loading ToDos...!! </p>}
+        {loading && <Loader />}
         {error && <p> Opp! We have an error... </p>}
         {!loading && !searchedTodos.length && <p> Create a new ToDo!! :D </p>}
         {searchedTodos.map((todo) => (
