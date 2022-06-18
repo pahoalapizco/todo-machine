@@ -1,0 +1,17 @@
+.ToggleSearch--toggle-filter {
+  width: 100%;
+  font-size: 1.4rem;
+  text-align: right;
+  padding-top: 5px;
+  padding-right: 15px;
+  color: gray
+}
+
+.ToggleSearch--toggle-filter:hover {
+  cursor: pointer;
+}
+
+.ToggleSearch--button {
+  margin-left: 15px;
+  color: var(--primary-color)
+}
