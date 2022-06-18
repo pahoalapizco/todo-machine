@@ -1,7 +1,19 @@
+.TodoCounter-container {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.TodoCounter--title {
+  margin: 20px 0;
+}
+
+.title {
+  font-size: 3rem;
+}
+
 .TodoCounter--progressbar {
   width: 100%;
   height: 15px;
-  margin-bottom: 20px;
   text-align: center;
   border-radius: 10px;
   background-color: var(--background-color);
@@ -14,4 +26,10 @@
   font-size: 1.2rem;
   background-color: var(--primary-color);
   border-radius: 10px;
+}
+
+.TodoCounter-text {
+  padding: 0 15px;
+  text-align: center;
+  font-weight: bold;
 }

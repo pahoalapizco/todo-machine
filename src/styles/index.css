@@ -45,6 +45,7 @@ button:hover {
   width: 100%;
   max-width: 480px;
   height: 100vh;
+  position: relative;
   padding: 20px;
   display: flex;
   flex-direction: column;
@@ -89,5 +90,9 @@ input[type=checkbox]:checked + .labelCheck:before  {
     height: 80vh;
     margin-top: 50px;
     border-radius: 25px;
+  }
+
+  .title br {
+    display: none;
   }
 }
