@@ -5,6 +5,7 @@ import '../styles/TodoForm.css';
 
 export const TodoForm = ({ setOpenModal }) => {
   const [text, setText] = useState("");
+  const [disableCreate, setDisableCreate] = useState(false);
 
   const {
     createTodo,
@@ -22,6 +23,7 @@ export const TodoForm = ({ setOpenModal }) => {
 
   const onTextChange = (event) => {
     setText(event.target.value);
+    setDisableCreate(!!event.target.value.length);
   }
 
   return (
@@ -49,6 +51,7 @@ export const TodoForm = ({ setOpenModal }) => {
         <button
           type="submit"
           className="form-button create-btn"
+          disabled={!disableCreate}
         >
           Create 
         </button>
