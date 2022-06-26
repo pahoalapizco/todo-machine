@@ -12,10 +12,12 @@ export const TodoItem = ({ todoId, text, completed, deleteTodo, completeTodo, se
   return (
     <li 
       className="TodoItem"
-      onClick={onEditTodo}
     >
       <Checkbox id={todoId} completed={completed} completeTodo={completeTodo}/>
-      <p className={`TodoItem-text ${completed && "TodoItem-text--completed"}`}>
+      <p 
+        className={`TodoItem-text ${completed && "TodoItem-text--completed"}`} 
+        onClick={onEditTodo}
+      >
       { text }
       </p>
 
