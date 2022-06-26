@@ -19,7 +19,9 @@ export function AppUI() {
     completeTodo,
     openModal,
     setOpenModal,
+    setTodo,
   } =  useContext(TodoContext);
+
   return (
     <>
       <TodoCounter />
@@ -36,6 +38,8 @@ export function AppUI() {
             completed={todo.completed}
             deleteTodo={deleteTodo}
             completeTodo={completeTodo}
+            setOpenModal={setOpenModal}
+            setTodo={setTodo}
           />
         ))}
       </TodoList>

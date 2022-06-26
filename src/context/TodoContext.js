@@ -17,6 +17,7 @@ export const TodoProvider = (props) => {
   const [searchValue, setSearchValue] = useState('');
   const [openModal, setOpenModal] = useState(false);
   const [completedSearch, setCompletedSearch] = useState(false);
+  const [todo, setTodo] = useState(null);
 
   const total = todos.length;
   const completed = todos.filter(({ completed }) => completed).length;
@@ -35,10 +36,12 @@ export const TodoProvider = (props) => {
       searchedTodos = [...todos];
     }
   }
+
   const deleteTodo = (todoId) => {
     const newTodos = todos.filter(({ id }) => id !== todoId);
     setTodos(newTodos);
   }
+
   const completeTodo = (event) => {
     const todoId = event.target.id.split("-").reverse()[0],
     checked = event.target.checked;
@@ -67,6 +70,13 @@ export const TodoProvider = (props) => {
     setTodos(newTodos);
   }
 
+  const editTodo = (editedTodo) => {
+    const todoIdx = todos.findIndex(todo => parseInt(todo.id) === parseInt(editedTodo.id));
+    const newTodos = [...todos];
+    newTodos[todoIdx] = editedTodo;
+    setTodos(newTodos);
+  }
+
   return (
     <TodoContext.Provider value={{      
       loading,
@@ -83,6 +93,9 @@ export const TodoProvider = (props) => {
       setOpenModal,
       completedSearch, 
       setCompletedSearch,
+      editTodo,
+      todo, 
+      setTodo,
     }}>
       { props.children }
     </TodoContext.Provider>

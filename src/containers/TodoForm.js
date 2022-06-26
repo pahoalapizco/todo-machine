@@ -3,21 +3,35 @@ import { useState, useContext } from 'react';
 import { TodoContext } from './../context/TodoContext';
 import '../styles/TodoForm.css';
 
-export const TodoForm = ({ setOpenModal }) => {
-  const [text, setText] = useState("");
-  const [disableCreate, setDisableCreate] = useState(false);
-
+export const TodoForm = ({ setOpenModal, item }) => {
   const {
     createTodo,
+    editTodo,
+    todo,
+    setTodo,
   } = useContext(TodoContext);
 
+  const title = todo ? "Edit" : "Create new";
+  const txt = todo ? todo.text : "";
+  const [text, setText] = useState(txt);
+  const [disableCreate, setDisableCreate] = useState(false);
+
   const onCancelTodo = () => {
+    setTodo(null);
     setOpenModal(false);
   }
   
   const onSubmitTodo = (event) => {
     event.preventDefault();
-    createTodo(text);
+    if(!todo) {
+      createTodo(text);
+    } else {
+      editTodo({
+        ...todo,
+        text,
+      });
+    }
+
     setOpenModal(false);
   }
 
@@ -28,7 +42,7 @@ export const TodoForm = ({ setOpenModal }) => {
 
   return (
     <form className="TodoForm" onSubmit={onSubmitTodo}>
-      <label htmlFor="create-todo"> Create new ToDo</label>
+      <label htmlFor="create-todo"> {title} ToDo</label>
       <textarea 
         className="TodoText" 
         id="create-todo" 
@@ -46,14 +60,14 @@ export const TodoForm = ({ setOpenModal }) => {
           className="form-button cancel-btn" 
           onClick={onCancelTodo}
         >
-          Cancel 
+          Cancel
         </button>
         <button
           type="submit"
           className="form-button create-btn"
           disabled={!disableCreate}
         >
-          Create 
+          Save 
         </button>
       </div>
     </form>
