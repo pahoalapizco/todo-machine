@@ -12,6 +12,7 @@ import { Error } from "../components/Error";
 
 // portal
 import { Modal } from "./Modal";
+import { Footer } from "../components/Footer";
 
 export function AppUI() {
   const { 
@@ -54,7 +55,7 @@ export function AppUI() {
           </Modal>
         )
       }
-      
+      <Footer />
     </>
   );
 }
