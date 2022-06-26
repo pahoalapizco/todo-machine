@@ -1,6 +1,6 @@
 import ReactDOM from 'react-dom';
 
-import '../styles/Moda.css';
+import '../styles/Modal.css';
 
 const ModalUI = ({ children }) => {
   return (
