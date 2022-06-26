@@ -17,6 +17,7 @@ export const useLocalStorage = (itemName, initialValue) => {
       setItems(defaultItems);
       setLoading(false);
     } catch (error) {
+      setLoading(false);
       setError(error);
     }
   }, []);
