@@ -1,7 +1,7 @@
 {
   "name": "todo-mahcine",
   "version": "0.1.0",
-  "private": true,
+  "private": false,
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.1.1",
     "@fortawesome/free-brands-svg-icons": "^6.1.1",
@@ -45,5 +45,5 @@
   "devDependencies": {
     "gh-pages": "^4.0.0"
   },
-  "hompage": "https://pahoalapizco.github.io/todo-mahcine"
+  "hompage": "https://pahoalapizco.github.io/todo-machine"
 }
